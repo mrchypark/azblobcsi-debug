@@ -1,10 +1,8 @@
-# syntax=docker/dockerfile:1
-FROM rust:1.55.0-alpine AS chef
+FROM rust:1.55.0-slim AS chef
 
 WORKDIR /usr/src/project
 
 RUN set -eux; \
-    apk add --no-cache musl-dev; \
     cargo install cargo-chef; \
     rm -rf $CARGO_HOME/registry
 
@@ -21,7 +19,7 @@ RUN cargo chef cook --release --recipe-path recipe.json
 COPY . .
 RUN cargo build --release
 
-FROM alpine:3.14
+FROM debian:bullseye-slim
 
 WORKDIR /usr/local/bin
 
