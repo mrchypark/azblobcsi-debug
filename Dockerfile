@@ -6,7 +6,7 @@ RUN set -eux; \
     cargo install cargo-chef; \
     rm -rf $CARGO_HOME/registry
 
-FROM chef as planner
+FROM chef AS planner
 
 COPY . .
 RUN cargo chef prepare --recipe-path recipe.json
