@@ -23,6 +23,6 @@ FROM debian:bullseye-slim
 
 WORKDIR /usr/local/bin
 
-COPY --from=builder /usr/src/project/target/release/project .
+COPY --from=builder /usr/src/project/target/release/azblobcsi-debug .
 
-CMD ["./project"]
+CMD ["./azblobcsi-debug"]
