@@ -1,4 +1,4 @@
-FROM rust:1.55.0-slim AS chef
+FROM rust:1.80.1-slim AS chef
 
 WORKDIR /usr/src/project
 
